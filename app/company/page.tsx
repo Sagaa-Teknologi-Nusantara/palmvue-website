@@ -73,9 +73,12 @@ export default function CompanyPage() {
                     <h2 className="text-3xl font-bold text-slate-900 mb-12">Leadership</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
-                            { name: "Andrei Hansel Z.", role: "CEO & Co-Founder", bio: "Ex-Cargill supply chain lead. 15 years in sustainable agriculture." },
+                            { name: "Andrei Hansel Z.", role: "CEO", bio: "Ex-Cargill supply chain lead. 15 years in sustainable agriculture." },
                             { name: "Gibran Fasha G.", role: "CTO", bio: "Former Principal Engineer at GoTo. Specialist in distributed systems." },
-                            { name: "Rasidin Azwar", role: "Head of Impact", bio: "PhD in Environmental Science. Led certification projects for RSPO." }
+                            { name: "Auvarifqi P. Diandra", role: "Head of Product", bio: "Ex-Cargill supply chain lead. 15 years in sustainable agriculture." },
+                            { name: "Kevin Sebastian T.", role: "Head of Innovation", bio: "Ex-Cargill supply chain lead. 15 years in sustainable agriculture." },
+                            { name: "M. Fadhil Abrar", role: "COO", bio: "Ex-Cargill supply chain lead. 15 years in sustainable agriculture." },
+                            { name: "Ir. Rasidin Azwar, M.Sc., PhD., APU", role: "Head of Impact", bio: "PhD in Environmental Science. Led certification projects for RSPO." }
                         ].map((leader, i) => (
                             <motion.div
                                 key={i}
