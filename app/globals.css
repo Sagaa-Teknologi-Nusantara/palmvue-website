@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-palmvue-green: #047857; /* emerald-700 */
+  --color-palmvue-green-dark: #064e3b; /* emerald-900 */
+  --color-palmvue-green-light: #10b981; /* emerald-500 */
+  
+  --color-palmvue-slate: #0f172a; /* slate-900 */
+  --color-palmvue-slate-light: #475569; /* slate-600 */
+  
+  --color-signal-cyan: #06b6d4; /* cyan-500 */
+  
+  --font-sans: var(--font-inter);
+}
+
+/* Custom Utilities for Glassmorphism */
+@utility glass {
+  @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-sm;
+}
+
+@utility glass-panel {
+  @apply backdrop-blur-lg bg-white/80 border border-slate-200/50 shadow-md;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+  font-family: var(--font-inter);
+}
