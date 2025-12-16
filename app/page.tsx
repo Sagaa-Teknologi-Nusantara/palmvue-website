@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Platform } from "@/components/sections/Platform";
 import { Innovation } from "@/components/sections/Innovation";
+import { WorkflowEngine } from "@/components/sections/WorkflowEngine";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Footer } from "@/components/layout/Footer";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Platform />
+      <WorkflowEngine />
       <Innovation />
       <HowItWorks />
       <CallToAction />

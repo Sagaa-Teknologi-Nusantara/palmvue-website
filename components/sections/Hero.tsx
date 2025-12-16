@@ -60,58 +60,171 @@ export function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* Abstract Visual / Dashboard Preview */}
-                    <div className="flex-1 w-full relative">
+                    {/* End-to-End Visual */}
+                    <div className="flex-1 w-full relative perspective-[2000px]">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
-                            className="relative"
+                            initial={{ opacity: 0, rotateX: 20, y: 50 }}
+                            animate={{ opacity: 1, rotateX: 0, y: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="relative min-h-[500px] flex items-center justify-center -ml-12 lg:ml-0"
+                            style={{ transformStyle: "preserve-3d" }}
                         >
-                            {/* Glass Card Placeholder for Dashboard UI */}
-                            <div className="relative rounded-2xl border border-slate-200/60 bg-white/70 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[4/3]">
-                                {/* Mock UI Header */}
-                                <div className="absolute top-0 w-full h-12 border-b border-slate-100 flex items-center px-4 gap-2 bg-white/50">
-                                    <div className="w-3 h-3 rounded-full bg-slate-200" />
-                                    <div className="w-3 h-3 rounded-full bg-slate-200" />
-                                </div>
+                            {/* Connected Flow Container */}
+                            <div className="relative w-full aspect-[4/3] max-w-lg mx-auto">
 
-                                {/* Mock UI Content */}
-                                <div className="p-8 pt-16 space-y-6">
-                                    {/* Stats Row */}
-                                    <div className="flex gap-4">
-                                        <div className="w-1/3 h-24 rounded-lg bg-slate-50 border border-slate-100 p-4">
-                                            <div className="w-8 h-8 rounded bg-emerald-100 mb-3" />
-                                            <div className="w-16 h-2 bg-slate-200 rounded mb-2" />
-                                            <div className="w-10 h-2 bg-slate-100 rounded" />
+                                {/* Connecting Line - Data Stream */}
+                                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 p-8" overflow="visible">
+                                    <defs>
+                                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#10b981" stopOpacity="0" />
+                                            <stop offset="50%" stopColor="#10b981" stopOpacity="0.5" />
+                                            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <motion.path
+                                        d="M 50 80 C 150 80, 200 200, 300 280"
+                                        fill="none"
+                                        stroke="url(#lineGrad)"
+                                        strokeWidth="3"
+                                        initial={{ pathLength: 0 }}
+                                        animate={{ pathLength: 1 }}
+                                        transition={{ duration: 1.5, delay: 0.5 }}
+                                    />
+                                    <motion.path
+                                        d="M 300 280 C 400 360, 450 150, 550 80"
+                                        fill="none"
+                                        stroke="url(#lineGrad)"
+                                        strokeWidth="3"
+                                        initial={{ pathLength: 0 }}
+                                        animate={{ pathLength: 1 }}
+                                        transition={{ duration: 1.5, delay: 1 }}
+                                    />
+                                </svg>
+
+                                {/* Node 1: Origin / Seed (Data Card) */}
+                                <motion.div
+                                    className="absolute top-10 left-0 hover:z-20"
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.6 }}
+                                >
+                                    <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl border border-slate-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] w-56 transform transition hover:scale-105 duration-300">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <div className="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-lg">🌱</div>
+                                            <div className="px-2 py-1 bg-slate-100 rounded text-[10px] uppercase font-bold text-slate-500 tracking-wider">Batch #2940</div>
                                         </div>
-                                        <div className="w-1/3 h-24 rounded-lg bg-slate-50 border border-slate-100 p-4">
-                                            <div className="w-8 h-8 rounded bg-blue-100 mb-3" />
-                                            <div className="w-16 h-2 bg-slate-200 rounded mb-2" />
-                                            <div className="w-10 h-2 bg-slate-100 rounded" />
-                                        </div>
-                                        <div className="w-1/3 h-24 rounded-lg bg-slate-50 border border-slate-100 p-4">
-                                            <div className="w-8 h-8 rounded bg-purple-100 mb-3" />
-                                            <div className="w-16 h-2 bg-slate-200 rounded mb-2" />
-                                            <div className="w-10 h-2 bg-slate-100 rounded" />
+                                        <div className="space-y-2">
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-slate-500">Purity</span>
+                                                <span className="font-mono text-emerald-600 font-bold">99.8%</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-slate-500">Origin</span>
+                                                <span className="text-slate-900 font-medium">Dami Mas Lab</span>
+                                            </div>
+                                            <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
+                                                <div className="h-full w-full bg-emerald-500" />
+                                            </div>
                                         </div>
                                     </div>
+                                </motion.div>
 
-                                    {/* Graph Area */}
-                                    <div className="h-40 w-full rounded-lg bg-slate-50 border border-slate-100 relative overflow-hidden">
-                                        <svg className="absolute bottom-0 left-0 w-full h-32 text-emerald-100 fill-current" viewBox="0 0 100 40" preserveAspectRatio="none">
-                                            <path d="M0 40 L0 30 C 20 20, 40 35, 60 25 C 80 15, 100 30, 100 10 L 100 40 Z" />
-                                        </svg>
-                                        <svg className="absolute bottom-0 left-0 w-full h-32 text-emerald-500 fill-none stroke-current stroke-2" viewBox="0 0 100 40" preserveAspectRatio="none">
-                                            <path d="M0 30 C 20 20, 40 35, 60 25 C 80 15, 100 30, 100 10" vectorEffect="non-scaling-stroke" />
-                                        </svg>
+                                {/* Node 2: Production / Harvest (Data Card) */}
+                                <motion.div
+                                    className="absolute top-[280px] left-1/2 -translate-x-1/2 hover:z-20"
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.9 }}
+                                >
+                                    <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl border border-slate-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] w-60 transform transition hover:scale-105 duration-300 -ml-8">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <div className="w-10 h-10 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center text-lg">🌴</div>
+                                            <div className="flex gap-1">
+                                                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                                                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Live Sync</span>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="flex justify-between text-xs border-b border-slate-100 pb-2">
+                                                <span className="text-slate-500">Harvester</span>
+                                                <span className="text-slate-900 font-medium">Team A - Block 4</span>
+                                            </div>
+                                            <div className="flex pt-1 gap-2">
+                                                <div className="flex-1 h-8 bg-slate-50 rounded border border-slate-100 flex items-center justify-center">
+                                                    <span className="block w-full h-4 bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg')] bg-contain bg-no-repeat bg-center opacity-30" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="text-[10px] text-slate-400">Yield</div>
+                                                    <div className="text-sm font-bold text-slate-900">1.2 Tons</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </motion.div>
+
+                                {/* Node 3: Distribution / Product (Data Card) */}
+                                <motion.div
+                                    className="absolute top-20 right-0 hover:z-20"
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 1.2 }}
+                                >
+                                    <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl border border-slate-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] w-56 transform transition hover:scale-105 duration-300">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-lg">🚛</div>
+                                            <div className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-[10px] uppercase font-bold tracking-wider">In Transit</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-slate-500">Destination</span>
+                                                <span className="text-slate-900 font-medium">Port Klang</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-slate-500">ETA</span>
+                                                <span className="text-emerald-600 font-bold">14:00 Today</span>
+                                            </div>
+                                            <div className="h-1 bg-slate-100 rounded-full overflow-hidden relative">
+                                                <motion.div
+                                                    className="h-full w-20 bg-blue-500 absolute top-0 left-0"
+                                                    animate={{ left: ["0%", "100%"] }}
+                                                    transition={{ duration: 2, repeat: Infinity }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Floating Data Packets - Abstract Particles only */}
+                                <motion.div
+                                    className="absolute top-0 left-32 w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] z-30"
+                                    initial={{ opacity: 0 }}
+                                    animate={{
+                                        offsetDistance: "100%",
+                                        opacity: [0, 1, 1, 0],
+                                        scale: [1, 1.5, 1]
+                                    }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    style={{ offsetPath: "path('M 50 80 C 150 80, 200 200, 300 280')" }}
+                                />
+                                <motion.div
+                                    className="absolute w-2 h-2 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.8)] z-30"
+                                    initial={{ opacity: 0 }}
+                                    animate={{
+                                        offsetDistance: "100%",
+                                        opacity: [0, 1, 1, 0],
+                                        scale: [1, 1.5, 1]
+                                    }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                                    style={{ offsetPath: "path('M 300 280 C 400 360, 450 150, 550 80')" }}
+                                />
                             </div>
 
-                            {/* Decorative Elements */}
-                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl -z-10" />
-                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl -z-10" />
+                            {/* Decorative Background Elements */}
+                            <div className="absolute -top-12 -right-12 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl -z-10 mix-blend-multiply" />
+                            <div className="absolute -bottom-12 -left-12 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10 mix-blend-multiply" />
+
+                            {/* Grid Floor */}
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[50%] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black)] -z-20 transform -rotate-x-12 perspective-1000 origin-bottom" />
                         </motion.div>
                     </div>
                 </div>
