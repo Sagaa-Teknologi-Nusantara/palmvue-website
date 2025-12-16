@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Platform } from "@/components/sections/Platform";
@@ -11,7 +10,6 @@ import { Footer } from "@/components/layout/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <Hero />
       <Problem />
       <Platform />

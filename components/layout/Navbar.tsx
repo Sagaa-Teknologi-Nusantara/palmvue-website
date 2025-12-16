@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navigation = [
-    { name: "Product", href: "#product" },
-    { name: "Solution", href: "#solution" },
-    { name: "Technology", href: "#technology" },
-    { name: "Company", href: "#company" },
+    { name: "Product", href: "/product" },
+    { name: "Solution", href: "/solution" },
+    { name: "Technology", href: "/technology" },
+    { name: "Company", href: "/company" },
 ]
 
 export function Navbar() {
@@ -65,12 +65,11 @@ export function Navbar() {
 
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center gap-4">
-                        <Link href="/login" className="text-sm font-medium text-slate-600 hover:text-slate-900">
-                            Log in
+                        <Link href="/demo">
+                            <Button size="sm" className="bg-palmvue-green hover:bg-palmvue-green-dark text-white font-medium shadow-lg shadow-palmvue-green/20">
+                                Request Demo
+                            </Button>
                         </Link>
-                        <Button size="sm" className="bg-palmvue-green hover:bg-palmvue-green-dark text-white font-medium shadow-lg shadow-palmvue-green/20">
-                            Request Demo
-                        </Button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -107,15 +106,11 @@ export function Navbar() {
                                 </Link>
                             ))}
                             <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-3">
-                                <Link
-                                    href="/login"
-                                    className="block px-3 py-2 text-center text-base font-medium text-slate-600 hover:text-slate-900"
-                                >
-                                    Log in
+                                <Link href="/demo" onClick={() => setIsOpen(false)}>
+                                    <Button className="w-full bg-palmvue-green hover:bg-palmvue-green-dark">
+                                        Request Demo
+                                    </Button>
                                 </Link>
-                                <Button className="w-full bg-palmvue-green hover:bg-palmvue-green-dark">
-                                    Request Demo
-                                </Button>
                             </div>
                         </div>
                     </motion.div>
