@@ -1,4 +1,4 @@
-import { Hero } from "@/components/sections/Hero";
+import { Hero } from "@/app/(landing)/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Platform } from "@/components/sections/Platform";
 import { Innovation } from "@/components/sections/Innovation";

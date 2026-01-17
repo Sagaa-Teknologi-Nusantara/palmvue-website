@@ -3,8 +3,6 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
-// --- Types ---
-
 export interface WorkflowStep {
   name: string;
   status: "completed" | "current" | "pending";
@@ -26,8 +24,6 @@ export interface EntityData {
   progress?: number;
   workflowSteps?: WorkflowStep[];
 }
-
-// --- Sub-Components ---
 
 const StatusBadge = ({
   variant = "info",
@@ -101,8 +97,6 @@ const WorkflowSteps = ({
     ))}
   </div>
 );
-
-// --- Main EntityCard Component ---
 
 export function EntityCard({
   data,
