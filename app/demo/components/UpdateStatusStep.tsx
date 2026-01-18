@@ -241,10 +241,14 @@ export function UpdateStatusStep({
                     Try Demo Again
                   </Button>
                   <Button
-                    className="w-full bg-palmvue-green hover:bg-palmvue-green-dark text-white h-12 rounded-xl font-medium"
-                    onClick={() => (window.location.href = "/")}
+                    className="w-full bg-palmvue-green hover:bg-palmvue-green-dark text-white h-12 rounded-xl font-medium shadow-lg shadow-palmvue-green/25"
+                    onClick={() => {
+                      document
+                        .getElementById("request-demo")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
                   >
-                    Explore PalmVue
+                    Request Full Demo
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
