@@ -10,7 +10,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "PalmVue | Seed Production Infrastructure",
-  description: "End-to-end traceability and compliance for palm seed production.",
+  description:
+    "End-to-end traceability and compliance for palm seed production.",
+  icons: {
+    icon: "/tosca-icon.png",
+    apple: "/tosca-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -20,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased bg-white text-slate-900`}
-      >
+      <body className={`${inter.variable} antialiased bg-white text-slate-900`}>
         <Navbar />
         {children}
       </body>
