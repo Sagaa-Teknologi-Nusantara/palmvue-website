@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { WifiOff, QrCode, Shield } from "lucide-react";
+import {
+  WifiOff,
+  QrCode,
+  Shield,
+  Bot,
+  Send,
+  BarChart3,
+  GripVertical,
+  Plus,
+  Check,
+} from "lucide-react";
 import { AUDIT_ENTRIES } from "../constants/product";
 
 export function MobileAppVisual() {
@@ -187,6 +197,205 @@ export function AuditTrailVisual() {
             </div>
           </motion.div>
         ))}
+      </div>
+    </motion.div>
+  );
+}
+
+export function AIChatbotVisual() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden shadow-2xl"
+    >
+      {/* Header */}
+      <div className="bg-slate-900 px-4 py-3 flex items-center gap-3 border-b border-slate-700">
+        <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+          <Bot className="w-4 h-4 text-cyan-400" />
+        </div>
+        <div>
+          <div className="text-sm font-medium text-white">PalmVue AI</div>
+          <div className="text-xs text-slate-400">
+            Ask anything about your data
+          </div>
+        </div>
+      </div>
+
+      {/* Chat Messages */}
+      <div className="p-4 space-y-4 min-h-[280px]">
+        {/* User Message */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="flex justify-end"
+        >
+          <div className="bg-cyan-600 text-white px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%] text-sm">
+            How many seeds were produced last month?
+          </div>
+        </motion.div>
+
+        {/* AI Response */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="flex gap-3"
+        >
+          <div className="w-6 h-6 bg-cyan-500/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+            <Bot className="w-3 h-3 text-cyan-400" />
+          </div>
+          <div className="bg-slate-700/50 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%]">
+            <p className="text-sm mb-3">Based on your production data:</p>
+            <div className="bg-slate-800 rounded-lg p-3 mb-3">
+              <div className="flex items-center gap-2 mb-2">
+                <BarChart3 className="w-4 h-4 text-cyan-400" />
+                <span className="text-xs text-slate-400">December 2025</span>
+              </div>
+              <div className="text-2xl font-bold text-white">3,421 seeds</div>
+              <div className="text-xs text-emerald-400">
+                ↑ 12% from November
+              </div>
+            </div>
+            <p className="text-xs text-slate-400">
+              Block A-12 was the top producer with 892 seeds.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* User Follow-up */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="flex justify-end"
+        >
+          <div className="bg-cyan-600 text-white px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%] text-sm">
+            Which trees need health verification?
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Input */}
+      <div className="px-4 pb-4">
+        <div className="bg-slate-700/50 rounded-xl px-4 py-3 flex items-center gap-3 border border-slate-600">
+          <input
+            type="text"
+            placeholder="Ask about your data..."
+            className="bg-transparent text-sm text-slate-300 placeholder:text-slate-500 flex-1 outline-none"
+            disabled
+          />
+          <button className="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center">
+            <Send className="w-4 h-4 text-white" />
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export function WorkflowBuilderVisual() {
+  const steps = [
+    {
+      name: "Isolate Inflorescence",
+      status: "complete",
+      color: "bg-emerald-500",
+    },
+    { name: "Collect Pollen", status: "complete", color: "bg-emerald-500" },
+    { name: "Grade Quality", status: "current", color: "bg-orange-500" },
+    { name: "Submit for Approval", status: "pending", color: "bg-slate-300" },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden"
+    >
+      {/* Header */}
+      <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 bg-orange-100 rounded flex items-center justify-center">
+            <GripVertical className="w-3 h-3 text-orange-600" />
+          </div>
+          <span className="text-sm font-medium text-slate-900">
+            Workflow Builder
+          </span>
+        </div>
+        <span className="text-xs text-orange-600 bg-orange-50 px-2 py-1 rounded-full">
+          No Code
+        </span>
+      </div>
+
+      {/* Workflow Steps */}
+      <div className="p-4">
+        <div className="text-xs text-slate-500 mb-3">Pollination Process</div>
+
+        <div className="space-y-3">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`flex items-center gap-3 p-3 rounded-lg border ${
+                step.status === "current"
+                  ? "border-orange-200 bg-orange-50"
+                  : "border-slate-100 bg-slate-50"
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <GripVertical className="w-4 h-4 text-slate-300 cursor-grab" />
+                <div
+                  className={`w-5 h-5 ${step.color} rounded-full flex items-center justify-center`}
+                >
+                  {step.status === "complete" ? (
+                    <Check className="w-3 h-3 text-white" />
+                  ) : step.status === "current" ? (
+                    <div className="w-2 h-2 bg-white rounded-full" />
+                  ) : (
+                    <div className="w-2 h-2 bg-slate-100 rounded-full" />
+                  )}
+                </div>
+              </div>
+              <span
+                className={`text-sm ${step.status === "pending" ? "text-slate-400" : "text-slate-700"}`}
+              >
+                {step.name}
+              </span>
+              <div className="ml-auto text-xs text-slate-400">
+                Step {index + 1}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Add Step Button */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="w-full mt-4 py-2 border-2 border-dashed border-slate-200 rounded-lg text-sm text-slate-400 flex items-center justify-center gap-2 hover:border-orange-300 hover:text-orange-500 transition-colors"
+        >
+          <Plus className="w-4 h-4" />
+          Add Step
+        </motion.button>
+      </div>
+
+      {/* Footer */}
+      <div className="bg-slate-50 px-4 py-3 border-t border-slate-200">
+        <div className="flex items-center justify-between text-xs text-slate-500">
+          <span>4 steps configured</span>
+          <span className="text-emerald-600">✓ Auto-saved</span>
+        </div>
       </div>
     </motion.div>
   );

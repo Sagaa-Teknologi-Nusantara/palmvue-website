@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Smartphone, Monitor, QrCode, ArrowRight } from "lucide-react";
+import { Smartphone, Monitor, ArrowRight } from "lucide-react";
 import {
   LINEAGE_FLOW,
   TRACKING_FEATURES,
@@ -17,9 +17,6 @@ export function DigitalTracking() {
     <section className="py-24 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <QrCode className="w-7 h-7 text-emerald-600" />
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
             Complete Digital Tracking
           </h2>
@@ -92,12 +89,19 @@ export function MobileApp() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div>
-            <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-              <Smartphone className="w-7 h-7 text-blue-600" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
+                <Smartphone className="w-7 h-7 text-blue-600" />
+              </div>
+              <div className="text-left space-y-1">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+                  Mobile App
+                </h2>
+                <p className="text-sm font-medium text-blue-600/60 uppercase tracking-wider">
+                  for Field Workers
+                </p>
+              </div>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              Mobile App for Field Workers
-            </h2>
             <p className="text-lg text-slate-600 mb-8">
               Your field teams don&apos;t need perfect internet to do their
               jobs. PalmVue&apos;s mobile app works seamlessly offline and syncs
@@ -157,12 +161,19 @@ export function WebDashboard() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
-              <Monitor className="w-7 h-7 text-purple-600" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center">
+                <Monitor className="w-7 h-7 text-purple-600" />
+              </div>
+              <div className="text-left space-y-1">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+                  Web Dashboard
+                </h2>
+                <p className="text-sm font-medium text-purple-600/60 uppercase tracking-wider">
+                  for Managers
+                </p>
+              </div>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              Web Dashboard for Managers
-            </h2>
             <p className="text-lg text-slate-600 mb-8">
               A powerful command center for plantation managers and
               administrators. Full control over entities, workflows, approvals,

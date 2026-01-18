@@ -47,7 +47,7 @@ export function Audience() {
 
 export function CallToAction() {
   return (
-    <section className="py-24 bg-emerald-600">
+    <section className="py-24 bg-emerald-700">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
           Ready to Transform Your Operations?
