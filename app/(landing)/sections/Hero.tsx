@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { TraceabilityVisualization } from "../components/TraceabilityVisualization";
 
@@ -33,20 +34,24 @@ export function Hero() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-palmvue-green hover:bg-palmvue-green-dark text-white px-8 h-12 text-base shadow-lg shadow-palmvue-green/25"
-                >
-                  See the Demo
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-12 px-8 text-base border-slate-200 text-slate-700 hover:bg-slate-50"
-                >
-                  Learn More
-                </Button>
+                <Link href="/demo">
+                  <Button
+                    size="lg"
+                    className="bg-palmvue-green hover:bg-palmvue-green-dark text-white px-8 h-12 text-base shadow-lg shadow-palmvue-green/25"
+                  >
+                    See the Demo
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link href="/product">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="h-12 px-8 text-base border-slate-200 text-slate-700 hover:bg-slate-50"
+                  >
+                    Learn More
+                  </Button>
+                </Link>
               </div>
 
               {/* Key Metrics */}

@@ -14,7 +14,10 @@ import { MobileAppVisual, DashboardVisual } from "../components/Visuals";
 
 export function DigitalTracking() {
   return (
-    <section className="py-24 bg-slate-50 border-t border-slate-100">
+    <section
+      id="features"
+      className="py-24 bg-slate-50 border-t border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
@@ -85,7 +88,7 @@ export function DigitalTracking() {
 
 export function MobileApp() {
   return (
-    <section className="py-24 bg-white">
+    <section id="mobile" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div>
@@ -153,7 +156,10 @@ export function MobileApp() {
 
 export function WebDashboard() {
   return (
-    <section className="py-24 bg-slate-50 border-t border-slate-100">
+    <section
+      id="dashboard"
+      className="py-24 bg-slate-50 border-t border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div className="order-2 lg:order-1 mt-12 lg:mt-0">
