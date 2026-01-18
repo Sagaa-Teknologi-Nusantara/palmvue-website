@@ -31,7 +31,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
             >
-              Built by Sagaa Teknologi Nusantara
+              Built by Sagaa Teknologi
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
@@ -155,8 +155,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} PalmVue by Sagaa Teknologi
-            Nusantara. All rights reserved.
+            &copy; {new Date().getFullYear()} PalmVue by Sagaa Teknologi. All rights reserved.
           </p>
           <p className="text-xs text-slate-600">Traceability You Can Trust</p>
         </div>

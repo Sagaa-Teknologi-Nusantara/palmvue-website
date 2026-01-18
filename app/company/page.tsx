@@ -124,7 +124,7 @@ export default function CompanyPage() {
               Built by
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Sagaa Teknologi Nusantara
+              Sagaa Teknologi
             </h2>
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               A technology company focused on building innovative solutions for
