@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Send, User, Phone, Mail, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xaqqevvw";
+
 export function RequestDemoSection() {
   const [formState, setFormState] = React.useState({
     name: "",
@@ -13,6 +15,7 @@ export function RequestDemoSection() {
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState((prev) => ({
@@ -26,10 +29,32 @@ export function RequestDemoSection() {
     if (!formState.name || !formState.email) return;
 
     setIsSubmitting(true);
-    // Simulate API call - replace with actual API integration
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _formType: "Request Demo",
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone || "Not provided",
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setError("Failed to send request. Please try again.");
+      }
+    } catch {
+      setError("Failed to send request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -77,7 +102,10 @@ export function RequestDemoSection() {
                 within 24 hours to schedule your personalized demo.
               </p>
               <Button
-                onClick={() => setIsSubmitted(false)}
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormState({ name: "", phone: "", email: "" });
+                }}
                 variant="outline"
                 className="border-slate-200"
               >
@@ -89,6 +117,12 @@ export function RequestDemoSection() {
               onSubmit={handleSubmit}
               className="bg-white rounded-2xl border border-slate-200 shadow-xl p-8 md:p-12"
             >
+              {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+                  {error}
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 {/* Name Field */}
                 <div>

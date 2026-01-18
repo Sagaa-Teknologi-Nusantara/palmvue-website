@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xaqqevvw";
+
 export function ContactForm() {
   const [formState, setFormState] = React.useState({
     name: "",
@@ -22,6 +24,7 @@ export function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -39,10 +42,34 @@ export function ContactForm() {
     if (!formState.name || !formState.email || !formState.message) return;
 
     setIsSubmitting(true);
-    // Simulate API call - replace with actual API integration
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _formType: "Contact Us",
+          name: formState.name,
+          email: formState.email,
+          company: formState.company || "Not provided",
+          subject: formState.subject || "General Inquiry",
+          message: formState.message,
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setError("Failed to send message. Please try again.");
+      }
+    } catch {
+      setError("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -92,6 +119,12 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 md:p-12"
     >
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+          {error}
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         {/* Name Field */}
         <div>
@@ -177,11 +210,11 @@ export function ContactForm() {
             className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 outline-none transition-all focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
           >
             <option value="">Select a topic</option>
-            <option value="general">General Inquiry</option>
-            <option value="demo">Request Demo</option>
-            <option value="pricing">Pricing Information</option>
-            <option value="partnership">Partnership</option>
-            <option value="support">Technical Support</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Request Demo">Request Demo</option>
+            <option value="Pricing Information">Pricing Information</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Technical Support">Technical Support</option>
           </select>
         </div>
       </div>
